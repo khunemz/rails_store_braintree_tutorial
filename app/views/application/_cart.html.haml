@@ -1,0 +1,6 @@
+=if @cart  
+  %p.nav-item.pull-md-right
+    -if @cart.empty?
+      Your cart is empty
+    -else
+      =link_to "You have #{@cart.count} ea." , cart_path

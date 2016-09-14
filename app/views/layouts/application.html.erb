@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Office Shopping</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'layouts/nav' %>
+
+<div class="container">
+  
+  <% if notice.present? %>
+    <%= content_tag :div , notice , class: 'alert alert-success' %>
+  <% elsif alert.present? %>
+    <%= content_tag :div , alert , class: 'alert alert-danger' %>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+</html>
