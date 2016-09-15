@@ -17,7 +17,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'country_select'
 gem 'bootstrap', '~> 4.0.0.alpha4'
-
+gem 'braintree'
 
 group :development, :test do
   gem 'minitest-rails'
