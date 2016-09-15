@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_filter :initalize_cart
+  before_filter :initialize_cart
 
   def add
     @cart.add_item params[:id]
@@ -13,6 +13,7 @@ class CartsController < ApplicationController
 
   def checkout
     @order_form = OrderForm.new user: User.new
+    @client_token = Braintree::ClientToken.generate
   end
   
 end

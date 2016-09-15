@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :users
   root to: 'products#index' , via: :get
   resources :products
@@ -6,5 +7,10 @@ Rails.application.routes.draw do
     post "add" , path: 'add/:id'
     get "checkout"
   end
-  resources :orders , only: [:index, :show ,:create]
+  resources :orders , only: [:index, :show ,:create] do
+    member do
+      get :new_payment
+      post :pay
+    end
+  end
 end
