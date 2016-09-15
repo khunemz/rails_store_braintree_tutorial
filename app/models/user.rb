@@ -3,6 +3,17 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :order
 
   validates_presence_of :name , :address , :city , :country , :postal_code
+
+  def full_address
+    "
+      #{address}
+      #{postal_code} #{city}
+      #{country}
+      #{phone}
+    "
+    
+  end
 end
