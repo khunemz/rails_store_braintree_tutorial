@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_filter :initialize_cart
+  before_action :authenticate_admin!, only: [:new , :create , :edit , :update , :destroy]
   # GET /products
   # GET /products.json
   def index
@@ -8,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1
-  # GET /products/1.json
+# GET /products/1.json
   def show
   end
 

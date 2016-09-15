@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
   def find_categories
     @categories = Category.all
   end
+
+  def authenticate_admin!
+    authenticate_user!
+    unless current_user.admin?
+      redirect_to root_path , alert: "401 Unauthorize"
+    end
+  end
 end

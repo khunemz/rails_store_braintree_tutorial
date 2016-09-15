@@ -10,6 +10,24 @@
       </li>
       <li class="nav-item">
         <%= link_to 'All Products' , products_path , class: 'nav-link'%>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          you are logged in as <%= current_user.name %>
+        </li>
+        <li class="nav-item">  
+          <%= link_to "Log out", destroy_user_session_path, :method => :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      <li class="nav-item">
+        
       </li>      
       <%= render 'application/cart' %>
     </ul>
